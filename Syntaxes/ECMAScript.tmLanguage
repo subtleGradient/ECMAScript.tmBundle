@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>comment</key>
+	<string>ECMAScript 5.1 http://es5.github.com/ http://www.ecmascript.org/</string>
+	<key>fileTypes</key>
+	<array>
+		<string>es</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>/\*\*|\{\s*$</string>
+	<key>foldingStopMarker</key>
+	<string>\*\*/|^\s*\}</string>
+	<key>keyEquivalent</key>
+	<string>^~E</string>
+	<key>name</key>
+	<string>ECMAScript</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>include</key>
+			<string>#comments</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#identifiers</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#literals</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#operator</string>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>block</key>
+		<dict>
+			<key>comment</key>
+			<string>12.1 Block http://es5.github.com/#x12.1</string>
+		</dict>
+		<key>comments</key>
+		<dict>
+			<key>comment</key>
+			<string>7.4 Comments http://es5.github.com/#x7.4</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>/\*</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.begin.es.ecmascript</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>\*/</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.end.es.ecmascript</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>comment.block.es.ecmascript</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>//</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.comment.es.ecmascript</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>$</string>
+					<key>name</key>
+					<string>comment.line.double-slash.es.ecmascript</string>
+				</dict>
+			</array>
+		</dict>
+		<key>expression-left-hand-side</key>
+		<dict>
+			<key>comment</key>
+			<string>11.2 Left-Hand-Side Expressions http://es5.github.com/#x11.2</string>
+		</dict>
+		<key>expression-postfix</key>
+		<dict>
+			<key>comment</key>
+			<string>11.3 Postfix Expressions http://es5.github.com/#x11.3</string>
+		</dict>
+		<key>expression-primary</key>
+		<dict>
+			<key>comment</key>
+			<string>11.1 Primary Expressions http://es5.github.com/#x11.1</string>
+		</dict>
+		<key>expression-statement</key>
+		<dict>
+			<key>comment</key>
+			<string>12.4 Expression Statement http://es5.github.com/#x12.4</string>
+		</dict>
+		<key>function-definition</key>
+		<dict>
+			<key>comment</key>
+			<string>13 Function Definition http://es5.github.com/#x13</string>
+		</dict>
+		<key>identifiers</key>
+		<dict>
+			<key>comment</key>
+			<string>7.6 Identifier Names and Identifiers http://es5.github.com/#x7.6</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#identifiers-keywords</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#identifiers-future-reserved-words</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#identifiers-future-reserved-words-strict</string>
+				</dict>
+			</array>
+		</dict>
+		<key>identifiers-future-reserved-words</key>
+		<dict>
+			<key>comment</key>
+			<string>7.6.1.2a Future Reserved Words http://es5.github.com/#x7.6.1.2</string>
+			<key>match</key>
+			<string>\b(super|c(onst|lass)|import|e(num|x(tends|port)))\b</string>
+			<key>name</key>
+			<string>invalid.illegal.reserved.keyword.$1.es.ecmascript</string>
+		</dict>
+		<key>identifiers-future-reserved-words-strict</key>
+		<dict>
+			<key>comment</key>
+			<string>7.6.1.2b Future Reserved Words http://es5.github.com/#x7.6.1.2</string>
+			<key>match</key>
+			<string>\b(static|yield|i(nterface|mplements)|p(ublic|ackage|r(ivate|otected))|let)\b</string>
+			<key>name</key>
+			<string>invalid.illegal.reserved.keyword.$1.es.ecmascript.strict</string>
+		</dict>
+		<key>identifiers-keywords</key>
+		<dict>
+			<key>comment</key>
+			<string>7.6.1.1 Keywords http://es5.github.com/#x7.6.1.1</string>
+			<key>match</key>
+			<string>\b(switch|new|c(ontinue|a(se|tch))|t(h(is|row)|ypeof|ry)|i(n(stanceof)?|f)|d(o|e(fault|lete|bugger))|else|v(oid|ar)|f(inally|or|unction)|w(hile|ith)|return|break)\b</string>
+			<key>name</key>
+			<string>keyword.other.$1.es.ecmascript</string>
+		</dict>
+		<key>initialiser-array</key>
+		<dict>
+			<key>comment</key>
+			<string>11.1.4 Array Initialiser http://es5.github.com/#x11.1.4</string>
+		</dict>
+		<key>initialiser-object</key>
+		<dict>
+			<key>comment</key>
+			<string>11.1.5 Object Initialiser http://es5.github.com/#x11.1.5</string>
+		</dict>
+		<key>line-terminators</key>
+		<dict>
+			<key>comment</key>
+			<string>7.3 Line Terminators http://es5.github.com/#x7.3</string>
+		</dict>
+		<key>literal-numeric</key>
+		<dict>
+			<key>comment</key>
+			<string>7.8.3 Numeric Literals http://es5.github.com/#x7.8.3</string>
+		</dict>
+		<key>literal-string</key>
+		<dict>
+			<key>comment</key>
+			<string>7.8.4 String Literals http://es5.github.com/#x7.8.4</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>"</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.es</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>"|(\n)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.end.es</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.character.newline.es</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.double.es</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#string-escape</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>'</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.es</string>
+						</dict>
+					</dict>
+					<key>end</key>
+					<string>'|(\n)</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.string.begin.es</string>
+						</dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>invalid.illegal.character.newline.es</string>
+						</dict>
+					</dict>
+					<key>name</key>
+					<string>string.quoted.single.es</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#string-escape</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+			<key>repository</key>
+			<dict>
+				<key>string-escape</key>
+				<dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>(?i)\\u[0-9A-F]{4}</string>
+							<key>name</key>
+							<string>constant.character.escape.unicode.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>(?i)\\x[0-9A-F]{2}</string>
+							<key>name</key>
+							<string>constant.character.escape.hex.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>\\"</string>
+							<key>name</key>
+							<string>constant.character.escape.quote.double.newline.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>\\'</string>
+							<key>name</key>
+							<string>constant.character.escape.quote.single.newline.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>(?i)\\\n</string>
+							<key>name</key>
+							<string>punctuation.separator.continuation.string.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>(?i)\\['"\\bfnrtv]</string>
+							<key>name</key>
+							<string>constant.character.escape.es</string>
+						</dict>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>invalid.deprecated.unnecessary.escape.es</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>\\.</string>
+							<key>name</key>
+							<string>constant.character.escape.es</string>
+						</dict>
+					</array>
+				</dict>
+			</dict>
+		</dict>
+		<key>literals</key>
+		<dict>
+			<key>comment</key>
+			<string>7.8 Literals http://es5.github.com/#x7.8</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>7.8.1 Null Literals http://es5.github.com/#x7.8.1</string>
+					<key>match</key>
+					<string>\bnull\b</string>
+					<key>name</key>
+					<string>constant.language.null.es</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>7.8.2 Boolean Literals http://es5.github.com/#x7.8.2</string>
+					<key>match</key>
+					<string>\b(true|false)\b</string>
+					<key>name</key>
+					<string>constant.language.boolean.$1.es</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal-numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literal-string</string>
+				</dict>
+			</array>
+		</dict>
+		<key>operator</key>
+		<dict>
+			<key>comment</key>
+			<string>11 Operators http://es5.github.com/#x11</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>comment</key>
+					<string>11.4 Unary Operators http://es5.github.com/#x11.4</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.5 Multiplicative Operators http://es5.github.com/#x11.5</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.6 Additive Operators http://es5.github.com/#x11.6</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.7 Bitwise Shift Operators http://es5.github.com/#x11.7</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.8 Relational Operators http://es5.github.com/#x11.8</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.9 Equality Operators http://es5.github.com/#x11.9</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.10 Binary Bitwise Operators http://es5.github.com/#x11.10</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.11 Binary Logical Operators http://es5.github.com/#x11.11</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.12 Conditional Operator http://es5.github.com/#x11.12</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.13 Assignment Operators http://es5.github.com/#x11.13</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.14 Comma Operator http://es5.github.com/#x11.14</string>
+				</dict>
+			</array>
+		</dict>
+		<key>punctuators</key>
+		<dict>
+			<key>comment</key>
+			<string>7.7 Punctuators http://es5.github.com/#x7.7</string>
+		</dict>
+		<key>statement</key>
+		<dict>
+			<key>comment</key>
+			<string>12 Statements http://es5.github.com/#x12</string>
+		</dict>
+		<key>statement-break</key>
+		<dict>
+			<key>comment</key>
+			<string>12.8 The Break Statement http://es5.github.com/#x12.8</string>
+		</dict>
+		<key>statement-continue</key>
+		<dict>
+			<key>comment</key>
+			<string>12.7 The Continue Statement http://es5.github.com/#x12.7</string>
+		</dict>
+		<key>statement-debugger</key>
+		<dict>
+			<key>comment</key>
+			<string>12.15 The Debugger Statement http://es5.github.com/#x12.15</string>
+		</dict>
+		<key>statement-empty</key>
+		<dict>
+			<key>comment</key>
+			<string>12.3 Empty Statement http://es5.github.com/#x12.3</string>
+		</dict>
+		<key>statement-if</key>
+		<dict>
+			<key>comment</key>
+			<string>12.5 If Statement http://es5.github.com/#x12.5</string>
+		</dict>
+		<key>statement-iteration</key>
+		<dict>
+			<key>comment</key>
+			<string>12.6 Iteration Statements http://es5.github.com/#x12.6</string>
+		</dict>
+		<key>statement-labelled</key>
+		<dict>
+			<key>comment</key>
+			<string>12.12 Labelled Statements http://es5.github.com/#x12.12</string>
+		</dict>
+		<key>statement-return</key>
+		<dict>
+			<key>comment</key>
+			<string>12.9 The Return Statement http://es5.github.com/#x12.9</string>
+		</dict>
+		<key>statement-throw</key>
+		<dict>
+			<key>comment</key>
+			<string>12.13 The Throw Statement http://es5.github.com/#x12.13</string>
+		</dict>
+		<key>statement-try</key>
+		<dict>
+			<key>comment</key>
+			<string>12.14 The try Statement http://es5.github.com/#x12.14</string>
+		</dict>
+		<key>statement-variable</key>
+		<dict>
+			<key>comment</key>
+			<string>12.2 Variable Statement http://es5.github.com/#x12.2</string>
+		</dict>
+		<key>statement-with</key>
+		<dict>
+			<key>comment</key>
+			<string>12.10 The With Statement http://es5.github.com/#x12.10</string>
+		</dict>
+		<key>white-space</key>
+		<dict>
+			<key>comment</key>
+			<string>7.2 White Space http://es5.github.com/#x7.2</string>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>source.es</string>
+	<key>uuid</key>
+	<string>5FCE9A79-8A9C-4903-9ACE-192EC5DC269F</string>
+</dict>
+</plist>

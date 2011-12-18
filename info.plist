@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>boyvivbhf@fhogyrtenqvrag.pbz</string>
+	<key>contactName</key>
+	<string>Thomas Aylott</string>
+	<key>description</key>
+	<string>Support for ECMAScript based languages.</string>
+	<key>name</key>
+	<string>ECMAScript</string>
+	<key>uuid</key>
+	<string>BED4D3F3-F602-4DD0-9A2B-DF8098DD98EE</string>
+</dict>
+</plist>
