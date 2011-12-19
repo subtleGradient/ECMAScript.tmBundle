@@ -13,26 +13,14 @@
 	<key>foldingStopMarker</key>
 	<string>\*\*/|^\s*\}</string>
 	<key>keyEquivalent</key>
-	<string>^~E</string>
+	<string>^~E</string>
 	<key>name</key>
 	<string>ECMAScript</string>
 	<key>patterns</key>
 	<array>
 		<dict>
 			<key>include</key>
-			<string>#comments</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#operator</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#identifiers</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#literals</string>
+			<string>#program</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -107,8 +95,139 @@
 		</dict>
 		<key>function-definition</key>
 		<dict>
+			<key>begin</key>
+			<string>\b(function)\b</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.def.es</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>13 Function Definition http://es5.github.com/#x13</string>
+			<key>end</key>
+			<string>(?&lt;=})</string>
+			<key>name</key>
+			<string>meta.function</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\G</string>
+					<key>end</key>
+					<string>(?&lt;=\))</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>begin</key>
+							<string>\G(?!\()</string>
+							<key>comment</key>
+							<string>function name</string>
+							<key>end</key>
+							<string>(?=\()</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#comments</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>[_$a-z][_$a-z0-9]*</string>
+									<key>name</key>
+									<string>entity.name.function.$1.es</string>
+								</dict>
+							</array>
+						</dict>
+						<dict>
+							<key>begin</key>
+							<string>\(</string>
+							<key>beginCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.parameters.begin.function.es</string>
+								</dict>
+							</dict>
+							<key>comment</key>
+							<string>function parameters</string>
+							<key>contentName</key>
+							<string>meta.function.parameters</string>
+							<key>end</key>
+							<string>\)</string>
+							<key>endCaptures</key>
+							<dict>
+								<key>0</key>
+								<dict>
+									<key>name</key>
+									<string>punctuation.definition.parameters.end.function.es</string>
+								</dict>
+							</dict>
+							<key>name</key>
+							<string>meta.function.parameters</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#comments</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>[_$a-z][_$a-z0-9]*</string>
+									<key>name</key>
+									<string>variable.parameter.function.es</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>,</string>
+									<key>name</key>
+									<string>punctuation.separator.parameters.function.es</string>
+								</dict>
+							</array>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>{</string>
+					<key>beginCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.function.begin.es</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>function body</string>
+					<key>contentName</key>
+					<string>meta.function.body</string>
+					<key>end</key>
+					<string>}</string>
+					<key>endCaptures</key>
+					<dict>
+						<key>0</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.function.end.es</string>
+						</dict>
+					</dict>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#program</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
 		</dict>
 		<key>identifiers</key>
 		<dict>
@@ -544,6 +663,45 @@
 							<string>=</string>
 							<key>name</key>
 							<string>keyword.operator.assignment.simple.es</string>
+						</dict>
+					</array>
+				</dict>
+			</array>
+		</dict>
+		<key>program</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#function-definition</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#identifiers</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#literals</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Not sure where else to put this, yet</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>;</string>
+							<key>name</key>
+							<string>punctuation.terminator.statement.es</string>
 						</dict>
 					</array>
 				</dict>

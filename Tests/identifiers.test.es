@@ -8,7 +8,7 @@ do
 else
 finally
 for
-function
+function(){}
 if
 in
 instanceof
