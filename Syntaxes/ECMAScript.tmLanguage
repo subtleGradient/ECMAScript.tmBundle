@@ -27,8 +27,37 @@
 	<dict>
 		<key>block</key>
 		<dict>
+			<key>begin</key>
+			<string>{</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.group.begin.es</string>
+				</dict>
+			</dict>
 			<key>comment</key>
 			<string>12.1 Block http://es5.github.com/#x12.1</string>
+			<key>contentName</key>
+			<string>meta.block.es</string>
+			<key>end</key>
+			<string>}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.group.end.es</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#program</string>
+				</dict>
+			</array>
 		</dict>
 		<key>comments</key>
 		<dict>
@@ -96,7 +125,7 @@
 		<key>function-definition</key>
 		<dict>
 			<key>begin</key>
-			<string>\b(function)\b</string>
+			<string>\b(function)\b(?:\s+\b(?i)([_$a-z][_$a-z0-9]*)\b)?</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -104,13 +133,18 @@
 					<key>name</key>
 					<string>keyword.control.def.es</string>
 				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function.$1.es</string>
+				</dict>
 			</dict>
 			<key>comment</key>
 			<string>13 Function Definition http://es5.github.com/#x13</string>
 			<key>end</key>
 			<string>(?&lt;=})</string>
 			<key>name</key>
-			<string>meta.function</string>
+			<string>meta.$1.${2:-unnamed}</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -135,7 +169,7 @@
 								</dict>
 								<dict>
 									<key>match</key>
-									<string>[_$a-z][_$a-z0-9]*</string>
+									<string>\b(?i)[_$a-z][_$a-z0-9]*\b</string>
 									<key>name</key>
 									<string>entity.name.function.$1.es</string>
 								</dict>
@@ -176,7 +210,7 @@
 								</dict>
 								<dict>
 									<key>match</key>
-									<string>[_$a-z][_$a-z0-9]*</string>
+									<string>\b(?i)[_$a-z][_$a-z0-9]*\b</string>
 									<key>name</key>
 									<string>variable.parameter.function.es</string>
 								</dict>
@@ -691,6 +725,10 @@
 				<dict>
 					<key>include</key>
 					<string>#literals</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block</string>
 				</dict>
 				<dict>
 					<key>comment</key>
