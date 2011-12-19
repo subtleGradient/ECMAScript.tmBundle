@@ -4,7 +4,6 @@ catch
 continue
 debugger
 default
-delete
 do
 else
 finally
@@ -13,17 +12,21 @@ function
 if
 in
 instanceof
-new
 return
 switch
-this
 throw
 try
-typeof
 var
-void
 while
 with
+
+this
+arguments
+
+new Thing
+typeof Thing
+void Thing
+delete Thing
 
 class
 const
@@ -42,4 +45,3 @@ protected
 public
 static
 yield
-

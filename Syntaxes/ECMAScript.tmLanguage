@@ -24,15 +24,15 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#operator</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#identifiers</string>
 		</dict>
 		<dict>
 			<key>include</key>
 			<string>#literals</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#operator</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -94,11 +94,6 @@
 		<dict>
 			<key>comment</key>
 			<string>11.2 Left-Hand-Side Expressions http://es5.github.com/#x11.2</string>
-		</dict>
-		<key>expression-postfix</key>
-		<dict>
-			<key>comment</key>
-			<string>11.3 Postfix Expressions http://es5.github.com/#x11.3</string>
 		</dict>
 		<key>expression-primary</key>
 		<dict>
@@ -361,47 +356,196 @@
 			<array>
 				<dict>
 					<key>comment</key>
-					<string>11.4 Unary Operators http://es5.github.com/#x11.4</string>
+					<string>10.6 Arguments Object http://es5.github.com/#x10.6</string>
+					<key>match</key>
+					<string>\barguments\b</string>
+					<key>name</key>
+					<string>variable.language.arguments.es</string>
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>11.5 Multiplicative Operators http://es5.github.com/#x11.5</string>
+					<string>11.1.1 The this Keyword http://es5.github.com/#x11.1.1</string>
+					<key>match</key>
+					<string>\bthis\b</string>
+					<key>name</key>
+					<string>variable.language.this.es</string>
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>11.6 Additive Operators http://es5.github.com/#x11.6</string>
+					<string>11.2.2 The new Operator http://es5.github.com/#x11.2.2</string>
+					<key>match</key>
+					<string>\bnew\b</string>
+					<key>name</key>
+					<string>keyword.operator.new.es</string>
 				</dict>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.operator.assignment.arithmetic.postfix.es</string>
+						</dict>
+					</dict>
 					<key>comment</key>
-					<string>11.7 Bitwise Shift Operators http://es5.github.com/#x11.7</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>11.8 Relational Operators http://es5.github.com/#x11.8</string>
+					<string>11.3 Postfix Expressions http://es5.github.com/#x11.3</string>
+					<key>match</key>
+					<string>\b\s*(\+\+|--)</string>
 				</dict>
 				<dict>
 					<key>comment</key>
 					<string>11.9 Equality Operators http://es5.github.com/#x11.9</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>11.10 Binary Bitwise Operators http://es5.github.com/#x11.10</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>11.11 Binary Logical Operators http://es5.github.com/#x11.11</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>11.12 Conditional Operator http://es5.github.com/#x11.12</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>!==|!=|===|==</string>
+							<key>name</key>
+							<string>keyword.operator.equality.es</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>comment</key>
 					<string>11.13 Assignment Operators http://es5.github.com/#x11.13</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>[-+*/%]=</string>
+							<key>name</key>
+							<string>keyword.operator.assignment.arithmetic.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>(&gt;&gt;&gt;|&gt;&gt;|&lt;&lt;|[&amp;^|])=</string>
+							<key>name</key>
+							<string>keyword.operator.assignment.bitwise.es</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>11.14 Comma Operator http://es5.github.com/#x11.14</string>
+					<string>11.4 Unary Operators http://es5.github.com/#x11.4</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\b(delete|void|typeof)\b</string>
+							<key>name</key>
+							<string>keyword.operator.$1.unary.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>(\+\+|--)</string>
+							<key>name</key>
+							<string>keyword.operator.assignment.arithmetic.prefix.unary.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>[-+~](?!\s)</string>
+							<key>name</key>
+							<string>keyword.operator.unary.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>!</string>
+							<key>name</key>
+							<string>keyword.operator.logical.not.unary.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>~</string>
+							<key>name</key>
+							<string>keyword.operator.bitwise.not.unary.es</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.5 Multiplicative Operators http://es5.github.com/#x11.5</string>
+					<key>match</key>
+					<string>[*/%]</string>
+					<key>name</key>
+					<string>keyword.operator.arithmetic.multiplicative.es</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.6 Additive Operators http://es5.github.com/#x11.6</string>
+					<key>match</key>
+					<string>[-+]</string>
+					<key>name</key>
+					<string>keyword.operator.arithmetic.additive.es</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.7 Bitwise Shift Operators http://es5.github.com/#x11.7</string>
+					<key>match</key>
+					<string>&gt;&gt;&gt;|&gt;&gt;|&lt;&lt;</string>
+					<key>name</key>
+					<string>keyword.operator.bitwise.shift.es</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.10 Binary Bitwise Operators http://es5.github.com/#x11.10</string>
+					<key>match</key>
+					<string>[&amp;^|]</string>
+					<key>name</key>
+					<string>keyword.operator.bitwise.binary.es</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.11 Binary Logical Operators http://es5.github.com/#x11.11</string>
+					<key>match</key>
+					<string></string>
+					<key>name</key>
+					<string>keyword.operator.logical.binary.es</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.12 Conditional Operator http://es5.github.com/#x11.12</string>
+					<key>match</key>
+					<string></string>
+					<key>name</key>
+					<string>keyword.operator.conditional.es</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.8 Relational Operators http://es5.github.com/#x11.8</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>\b(instanceof|in)\b</string>
+							<key>name</key>
+							<string>keyword.operator.comparison.$1.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>&gt;=|&lt;=|&gt;|&lt;</string>
+							<key>name</key>
+							<string>keyword.operator.comparison.es</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>=&gt;|=&lt;</string>
+							<key>name</key>
+							<string>invalid.illegal.operator.comparison.es</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>11.13 Assignment Operators http://es5.github.com/#x11.13</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>=</string>
+							<key>name</key>
+							<string>keyword.operator.assignment.simple.es</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
